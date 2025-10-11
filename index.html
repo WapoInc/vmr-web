@@ -1,159 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Hello World</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Simple Hello World page with a globe image" />
   <style>
-    :root {
-      color-scheme: light dark;
-      --font-stack: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      --bg: #f7f9fa;
-      --fg: #222;
-      --accent: #2563eb;
-      --card-bg: #ffffff;
-      --shadow: 0 4px 12px rgba(0,0,0,.08);
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0f1419;
-        --fg: #e6e6e6;
-        --card-bg: #1e262f;
-        --shadow: 0 4px 12px rgba(0,0,0,.55);
-      }
-    }
-    * {
-      box-sizing: border-box;
-    }
     body {
-      margin: 0;
-      font-family: var(--font-stack);
-      background: var(--bg);
-      color: var(--fg);
-      display: grid;
-      place-items: center;
-      min-height: 100vh;
-      padding: 1rem;
-    }
-    main {
-      padding: 2.5rem 3rem;
-      background: var(--card-bg);
-      border-radius: 1rem;
-      box-shadow: var(--shadow);
-      text-align: center;
-      max-width: 560px;
-      width: 100%;
+      margin:0;
+      font-family: system-ui, sans-serif;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      min-height:100vh;
+      background:#0f1419;
+      color:#fff;
     }
     h1 {
-      margin: 0 0 0.75rem;
-      font-size: clamp(2rem, 6vw, 2.75rem);
-      line-height: 1.1;
+      font-size:3rem;
+      margin:0 0 1.5rem;
+      text-align:center;
+      letter-spacing:.05em;
     }
-    p {
-      margin: 0 0 1.25rem;
-      font-size: 1.05rem;
+    .globe {
+      width:220px;
+      aspect-ratio:1/1;
     }
-    .accent {
-      color: var(--accent);
-      font-weight: 600;
-    }
-    .globe-wrapper {
-      width: 200px;
-      margin: 1.25rem auto 1.5rem;
-      aspect-ratio: 1/1;
-      position: relative;
-    }
-    .globe-wrapper svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-      filter: drop-shadow(0 4px 6px rgba(0,0,0,.15));
-    }
-    button {
-      cursor: pointer;
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      border-radius: 0.6rem;
-      padding: 0.75rem 1.25rem;
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      transition: background .25s;
-    }
-    button:hover,
-    button:focus-visible {
-      background: #1d4fb5;
-      outline: none;
-    }
-    footer {
-      margin-top: 1.5rem;
-      font-size: 0.75rem;
-      opacity: 0.7;
+    svg {
+      width:100%;
+      height:100%;
+      display:block;
     }
   </style>
 </head>
 <body>
-  <main>
-    <h1>Hello, <span class="accent">World!</span></h1>
-    <p>This is a minimal HTML page. Below is an inline SVG illustration of the globe (no external image dependencies).</p>
-
-    <!-- Accessible Globe Image -->
-    <figure class="globe-wrapper" aria-labelledby="globeCaption">
-      <!-- Inline SVG Globe (simplified) -->
-      <svg role="img" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" aria-describedby="globeDesc">
-        <title id="globeDesc">Stylized globe showing continents</title>
-        <defs>
-          <radialGradient id="earthGradient" cx="50%" cy="45%" r="60%">
-            <stop offset="0%" stop-color="#4FC3F7"/>
-            <stop offset="80%" stop-color="#0288D1"/>
-            <stop offset="100%" stop-color="#01579B"/>
-          </radialGradient>
-          <clipPath id="circleClip">
-            <circle cx="128" cy="128" r="118"/>
-          </clipPath>
-        </defs>
-
-        <!-- Outer circle -->
-        <circle cx="128" cy="128" r="120" fill="url(#earthGradient)" stroke="#0d47a1" stroke-width="4"/>
-
-        <!-- Lat / Long lines -->
-        <g stroke="rgba(255,255,255,.35)" stroke-width="2" fill="none" clip-path="url(#circleClip)">
-          <ellipse cx="128" cy="128" rx="100" ry="118"/>
-          <ellipse cx="128" cy="128" rx="60" ry="118"/>
-          <ellipse cx="128" cy="128" rx="20" ry="118"/>
-          <circle cx="128" cy="128" r="100"/>
-          <circle cx="128" cy="128" r="70"/>
-          <circle cx="128" cy="128" r="40"/>
-          <path d="M10 128h236M10 88h236M10 168h236M10 48h236M10 208h236" />
-        </g>
-
-        <!-- Continents (simplified shapes) -->
-        <g fill="#A5D6A7" clip-path="url(#circleClip)">
-          <path d="M90 75l18-10 22 4 8 14-6 14-14 10-20-4-10-12 2-16z"/>
-          <path d="M150 120l16-8 18 4 10 10-4 12-14 6-20-2-10-10 4-12z"/>
-          <path d="M110 160l14-6 16 6 6 12-10 14-18 2-12-10 4-18z"/>
-          <path d="M172 66l10-4 14 6 4 10-8 10-12 2-8-8 0-16z"/>
-        </g>
-      </svg>
-      <figcaption id="globeCaption" style="font-size:0.8rem;opacity:.75;margin-top:.4rem;">
-        A lightweight SVG globe illustration.
-      </figcaption>
-    </figure>
-
-    <button type="button" id="helloBtn" aria-label="Show greeting in dialog">
-      Click me
-    </button>
-    <footer>
-      Served with ♥
-    </footer>
-  </main>
-  <script>
-    document.getElementById('helloBtn').addEventListener('click', () => {
-      console.log('Hello World from JavaScript!');
-      alert('Hello World!');
-    });
-  </script>
+  <h1>Hello World</h1>
+  <!-- Minimal inline SVG globe (no external requests) -->
+  <div class="globe" role="img" aria-label="Globe">
+    <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="g" cx="50%" cy="45%" r="60%">
+          <stop offset="0%" stop-color="#4FC3F7"/>
+          <stop offset="80%" stop-color="#0288D1"/>
+          <stop offset="100%" stop-color="#01579B"/>
+        </radialGradient>
+        <clipPath id="c">
+          <circle cx="128" cy="128" r="118"/>
+        </clipPath>
+      </defs>
+      <circle cx="128" cy="128" r="120" fill="url(#g)" stroke="#0d47a1" stroke-width="4"/>
+      <g stroke="rgba(255,255,255,.35)" stroke-width="2" fill="none" clip-path="url(#c)">
+        <ellipse cx="128" cy="128" rx="100" ry="118"/>
+        <ellipse cx="128" cy="128" rx="60" ry="118"/>
+        <ellipse cx="128" cy="128" rx="20" ry="118"/>
+        <circle cx="128" cy="128" r="100"/>
+        <circle cx="128" cy="128" r="70"/>
+        <circle cx="128" cy="128" r="40"/>
+        <path d="M10 128h236M10 88h236M10 168h236M10 48h236M10 208h236"/>
+      </g>
+      <g fill="#A5D6A7" clip-path="url(#c)">
+        <path d="M90 75l18-10 22 4 8 14-6 14-14 10-20-4-10-12 2-16z"/>
+        <path d="M150 120l16-8 18 4 10 10-4 12-14 6-20-2-10-10 4-12z"/>
+        <path d="M110 160l14-6 16 6 6 12-10 14-18 2-12-10 4-18z"/>
+        <path d="M172 66l10-4 14 6 4 10-8 10-12 2-8-8 0-16z"/>
+      </g>
+    </svg>
+  </div>
 </body>
 </html>
