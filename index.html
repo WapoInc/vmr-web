@@ -30,11 +30,22 @@
       height:100%;
       display:block;
     }
+    .repo-link {
+      margin-top:1.25rem;
+      font-size:0.95rem;
+    }
+    .repo-link a {
+      color:#4FC3F7;
+      text-decoration:none;
+    }
+    .repo-link a:hover,
+    .repo-link a:focus {
+      text-decoration:underline;
+    }
   </style>
 </head>
 <body>
   <h1>Hello World</h1>
-  <!-- Minimal inline SVG globe (no external requests) -->
   <div class="globe" role="img" aria-label="Globe">
     <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -64,6 +75,11 @@
         <path d="M172 66l10-4 14 6 4 10-8 10-12 2-8-8 0-16z"/>
       </g>
     </svg>
+  </div>
+  <div class="repo-link">
+    <a href="https://github.com/WapoInc/vmr-web" target="_blank" rel="noopener noreferrer">
+      https://github.com/WapoInc/vmr-web
+    </a>
   </div>
 </body>
 </html>
