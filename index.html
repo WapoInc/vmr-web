@@ -14,6 +14,7 @@
       min-height:100vh;
       background:#0f1419;
       color:#fff;
+      padding:1rem;
     }
     h1 {
       font-size:3rem;
@@ -21,9 +22,10 @@
       text-align:center;
       letter-spacing:.05em;
     }
-    .globe {
-      width:220px;
-      aspect-ratio:1/1;
+    .datacenter {
+      width:320px;
+      max-width:80vw;
+      aspect-ratio:16/9;
     }
     svg {
       width:100%;
@@ -33,6 +35,7 @@
     .repo-link {
       margin-top:1.25rem;
       font-size:0.95rem;
+      text-align:center;
     }
     .repo-link a {
       color:#4FC3F7;
@@ -46,40 +49,124 @@
 </head>
 <body>
   <h1>Hello World</h1>
-  <div class="globe" role="img" aria-label="Globe">
-    <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Inline SVG: Stylized Azure-like cloud above data center racks (original artwork, not an exact logo) -->
+  <div class="datacenter" role="img" aria-label="Stylized Azure cloud above data center racks">
+    <svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <radialGradient id="g" cx="50%" cy="45%" r="60%">
-          <stop offset="0%" stop-color="#4FC3F7"/>
-          <stop offset="80%" stop-color="#0288D1"/>
-          <stop offset="100%" stop-color="#01579B"/>
-        </radialGradient>
-        <clipPath id="c">
-          <circle cx="128" cy="128" r="118"/>
-        </clipPath>
+        <linearGradient id="rackGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1f2933"/>
+          <stop offset="100%" stop-color="#0d141c"/>
+        </linearGradient>
+        <linearGradient id="cloudGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#66b3ff"/>
+          <stop offset="100%" stop-color="#0078d4"/>
+        </linearGradient>
+        <linearGradient id="glowGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0094ff" stop-opacity="0.65"/>
+          <stop offset="100%" stop-color="#0094ff" stop-opacity="0"/>
+        </linearGradient>
+        <filter id="blur" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="18"/>
+        </filter>
       </defs>
-      <circle cx="128" cy="128" r="120" fill="url(#g)" stroke="#0d47a1" stroke-width="4"/>
-      <g stroke="rgba(255,255,255,.35)" stroke-width="2" fill="none" clip-path="url(#c)">
-        <ellipse cx="128" cy="128" rx="100" ry="118"/>
-        <ellipse cx="128" cy="128" rx="60" ry="118"/>
-        <ellipse cx="128" cy="128" rx="20" ry="118"/>
-        <circle cx="128" cy="128" r="100"/>
-        <circle cx="128" cy="128" r="70"/>
-        <circle cx="128" cy="128" r="40"/>
-        <path d="M10 128h236M10 88h236M10 168h236M10 48h236M10 208h236"/>
+
+      <!-- Background -->
+      <rect x="0" y="0" width="640" height="360" fill="#0f1419"/>
+
+      <!-- Subtle gradient glow behind cloud -->
+      <ellipse cx="320" cy="120" rx="210" ry="90" fill="url(#glowGrad)" filter="url(#blur)"/>
+
+      <!-- Cloud (stylized, NOT official Azure logo) -->
+      <g>
+        <path fill="url(#cloudGrad)" stroke="#0a4c85" stroke-width="3"
+              d="M248 166c-34 0-62-26-62-58 0-27 19-50 45-56 9-31 39-52 74-52 33 0 61 18 71 45 5-2 11-3 17-3 28 0 50 22 50 49 0 5-1 10-2 14 24 6 42 28 42 53 0 31-26 57-59 57H248z"/>
+        <!-- Sub cloud highlight -->
+        <path fill="rgba(255,255,255,0.18)"
+              d="M276 160c-25 0-45-19-45-42 0-19 13-36 32-41 6-23 29-39 55-39 25 0 46 13 54 33 4-2 8-2 12-2 21 0 38 16 38 36 0 4-1 7-2 11 18 5 31 21 31 39 0 23-20 42-44 42H276z"/>
       </g>
-      <g fill="#A5D6A7" clip-path="url(#c)">
-        <path d="M90 75l18-10 22 4 8 14-6 14-14 10-20-4-10-12 2-16z"/>
-        <path d="M150 120l16-8 18 4 10 10-4 12-14 6-20-2-10-10 4-12z"/>
-        <path d="M110 160l14-6 16 6 6 12-10 14-18 2-12-10 4-18z"/>
-        <path d="M172 66l10-4 14 6 4 10-8 10-12 2-8-8 0-16z"/>
+
+      <!-- Data center floor -->
+      <rect x="0" y="250" width="640" height="110" fill="#061018"/>
+      <rect x="0" y="250" width="640" height="4" fill="#12324a"/>
+
+      <!-- Racks Group -->
+      <g stroke="#0a1620" stroke-width="2">
+        <!-- Reusable rack component via <g> + transforms -->
+        <!-- We'll just manually define several for clarity -->
+        <!-- Each rack -->
+        <!-- Function to draw one rack: outer rect + slot bars + indicator lights -->
+        <!-- Rack 1 -->
+        <g transform="translate(90,150)">
+          <rect width="70" height="120" fill="url(#rackGrad)" rx="4"/>
+          <!-- Shelves -->
+          <g stroke="#1c2d3a" stroke-width="1">
+            <path d="M5 15h60M5 30h60M5 45h60M5 60h60M5 75h60M5 90h60M5 105h60"/>
+          </g>
+          <!-- Lights -->
+          <g>
+            <circle cx="15" cy="22" r="3" fill="#20d48a"/>
+            <circle cx="28" cy="22" r="3" fill="#ffd147"/>
+            <circle cx="41" cy="22" r="3" fill="#ff4f64"/>
+          </g>
+        </g>
+        <!-- Rack 2 -->
+        <g transform="translate(180,150)">
+          <rect width="70" height="120" fill="url(#rackGrad)" rx="4"/>
+          <g stroke="#1c2d3a" stroke-width="1">
+            <path d="M5 15h60M5 30h60M5 45h60M5 60h60M5 75h60M5 90h60M5 105h60"/>
+          </g>
+          <g>
+            <circle cx="15" cy="22" r="3" fill="#20d48a"/>
+            <circle cx="28" cy="22" r="3" fill="#ffd147"/>
+            <circle cx="41" cy="22" r="3" fill="#20d48a"/>
+          </g>
+        </g>
+        <!-- Rack 3 (center) -->
+        <g transform="translate(270,150)">
+          <rect width="70" height="120" fill="url(#rackGrad)" rx="4"/>
+          <g stroke="#1c2d3a" stroke-width="1">
+            <path d="M5 15h60M5 30h60M5 45h60M5 60h60M5 75h60M5 90h60M5 105h60"/>
+          </g>
+          <g>
+            <circle cx="15" cy="22" r="3" fill="#20d48a"/>
+            <circle cx="28" cy="22" r="3" fill="#20d48a"/>
+            <circle cx="41" cy="22" r="3" fill="#ffd147"/>
+          </g>
+        </g>
+        <!-- Rack 4 -->
+        <g transform="translate(360,150)">
+          <rect width="70" height="120" fill="url(#rackGrad)" rx="4"/>
+          <g stroke="#1c2d3a" stroke-width="1">
+            <path d="M5 15h60M5 30h60M5 45h60M5 60h60M5 75h60M5 90h60M5 105h60"/>
+          </g>
+          <g>
+            <circle cx="15" cy="22" r="3" fill="#ffd147"/>
+            <circle cx="28" cy="22" r="3" fill="#20d48a"/>
+            <circle cx="41" cy="22" r="3" fill="#20d48a"/>
+          </g>
+        </g>
+        <!-- Rack 5 -->
+        <g transform="translate(450,150)">
+          <rect width="70" height="120" fill="url(#rackGrad)" rx="4"/>
+          <g stroke="#1c2d3a" stroke-width="1">
+            <path d="M5 15h60M5 30h60M5 45h60M5 60h60M5 75h60M5 90h60M5 105h60"/>
+          </g>
+          <g>
+            <circle cx="15" cy="22" r="3" fill="#ff4f64"/>
+            <circle cx="28" cy="22" r="3" fill="#ffd147"/>
+            <circle cx="41" cy="22" r="3" fill="#20d48a"/>
+          </g>
+        </g>
       </g>
+
+      <!-- Subtle foreground reflection line -->
+      <rect x="0" y="246" width="640" height="2" fill="#1f3d55" opacity=".6"/>
     </svg>
   </div>
+
   <div class="repo-link">
-    <a href="https://github.com/WapoInc/vmr-web" target="_blank" rel="noopener noreferrer">
-      https://github.com/WapoInc/vmr-web
-    </a>
+    <a href="https://github.com/WapoInc/vmr-web" target="_blank" rel="noopener noreferrer">WapoInc/vmr-web</a>
   </div>
 </body>
 </html>
