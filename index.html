@@ -59,12 +59,73 @@
       margin: 2rem 0;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      width: 90%;
+      max-width: 1200px;
+      margin: 2rem 0;
+    }
+    .gallery-item {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(79,195,247,0.3);
+    }
+    .gallery-item img,
+    .gallery-item svg {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .gallery-item h3 {
+      margin: 1rem 0 0.5rem;
+      color: #4FC3F7;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    .gallery-item p {
+      margin: 0;
+      color: #aaa;
+      font-size: 0.9rem;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
   <h1>Hello World<br><span class="additional-text">....... have a lekker day bru .......</span></h1>
 
-  <img src="cloud-data-center.jpg" alt="Azure cloud computing data center" class="datacenter-image">
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="cloud-data-center.jpg" alt="Azure cloud computing data center">
+      <h3>Data Center Corridor</h3>
+      <p>High-performance computing infrastructure</p>
+    </div>
+    
+    <div class="gallery-item">
+      <img src="azure-datacenter-servers.svg" alt="Azure server racks">
+      <h3>Server Racks</h3>
+      <p>Multiple server racks with active monitoring</p>
+    </div>
+    
+    <div class="gallery-item">
+      <img src="azure-datacenter-network.svg" alt="Azure network infrastructure">
+      <h3>Network Infrastructure</h3>
+      <p>Global Azure network with 8 regions</p>
+    </div>
+    
+    <div class="gallery-item">
+      <img src="azure-datacenter-storage.svg" alt="Azure storage systems">
+      <h3>Storage Systems</h3>
+      <p>Blob, File, Disk storage and databases</p>
+    </div>
+  </div>
 
   <div class="repo-link">
     <a href="https://github.com/WapoInc/vmr-web" target="_blank" rel="noopener noreferrer">WapoInc/vmr-web</a>

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#0f1419"/>
+  
+  <!-- Title -->
+  <text x="400" y="50" text-anchor="middle" fill="#4FC3F7" font-size="24" font-weight="bold">Azure Cloud Storage</text>
+  
+  <!-- Storage Units -->
+  <g transform="translate(100, 120)">
+    <!-- Storage Array 1 -->
+    <rect x="0" y="0" width="200" height="120" fill="#1a2332" stroke="#4FC3F7" stroke-width="2"/>
+    <text x="100" y="30" text-anchor="middle" fill="#4FC3F7" font-size="16">Blob Storage</text>
+    
+    <!-- Progress bars -->
+    <rect x="20" y="50" width="160" height="15" fill="#2a3342" stroke="#4FC3F7" stroke-width="1"/>
+    <rect x="20" y="50" width="120" height="15" fill="#4FC3F7"/>
+    <text x="100" y="62" text-anchor="middle" fill="#fff" font-size="10">75% Used</text>
+    
+    <rect x="20" y="75" width="160" height="15" fill="#2a3342" stroke="#4FC3F7" stroke-width="1"/>
+    <rect x="20" y="75" width="95" height="15" fill="#00ff00"/>
+    <text x="100" y="87" text-anchor="middle" fill="#fff" font-size="10">59% Used</text>
+  </g>
+  
+  <g transform="translate(100, 270)">
+    <!-- Storage Array 2 -->
+    <rect x="0" y="0" width="200" height="120" fill="#1a2332" stroke="#4FC3F7" stroke-width="2"/>
+    <text x="100" y="30" text-anchor="middle" fill="#4FC3F7" font-size="16">File Storage</text>
+    
+    <!-- Progress bars -->
+    <rect x="20" y="50" width="160" height="15" fill="#2a3342" stroke="#4FC3F7" stroke-width="1"/>
+    <rect x="20" y="50" width="140" height="15" fill="#ffaa00"/>
+    <text x="100" y="62" text-anchor="middle" fill="#fff" font-size="10">87% Used</text>
+    
+    <rect x="20" y="75" width="160" height="15" fill="#2a3342" stroke="#4FC3F7" stroke-width="1"/>
+    <rect x="20" y="75" width="80" height="15" fill="#00ff00"/>
+    <text x="100" y="87" text-anchor="middle" fill="#fff" font-size="10">50% Used</text>
+  </g>
+  
+  <g transform="translate(100, 420)">
+    <!-- Storage Array 3 -->
+    <rect x="0" y="0" width="200" height="120" fill="#1a2332" stroke="#4FC3F7" stroke-width="2"/>
+    <text x="100" y="30" text-anchor="middle" fill="#4FC3F7" font-size="16">Disk Storage</text>
+    
+    <!-- Progress bars -->
+    <rect x="20" y="50" width="160" height="15" fill="#2a3342" stroke="#4FC3F7" stroke-width="1"/>
+    <rect x="20" y="50" width="105" height="15" fill="#4FC3F7"/>
+    <text x="100" y="62" text-anchor="middle" fill="#fff" font-size="10">65% Used</text>
+    
+    <rect x="20" y="75" width="160" height="15" fill="#2a3342" stroke="#4FC3F7" stroke-width="1"/>
+    <rect x="20" y="75" width="72" height="15" fill="#00ff00"/>
+    <text x="100" y="87" text-anchor="middle" fill="#fff" font-size="10">45% Used</text>
+  </g>
+  
+  <!-- Right side - Database icons -->
+  <g transform="translate(420, 120)">
+    <!-- Database 1 -->
+    <ellipse cx="80" cy="20" rx="80" ry="15" fill="#2a3342" stroke="#4FC3F7" stroke-width="2"/>
+    <rect x="0" y="20" width="160" height="60" fill="#2a3342"/>
+    <rect x="0" y="20" width="160" height="60" fill="none" stroke="#4FC3F7" stroke-width="2"/>
+    <ellipse cx="80" cy="80" rx="80" ry="15" fill="#1a2332" stroke="#4FC3F7" stroke-width="2"/>
+    <text x="80" y="55" text-anchor="middle" fill="#4FC3F7" font-size="14">SQL Database</text>
+  </g>
+  
+  <g transform="translate(420, 270)">
+    <!-- Database 2 -->
+    <ellipse cx="80" cy="20" rx="80" ry="15" fill="#2a3342" stroke="#4FC3F7" stroke-width="2"/>
+    <rect x="0" y="20" width="160" height="60" fill="#2a3342"/>
+    <rect x="0" y="20" width="160" height="60" fill="none" stroke="#4FC3F7" stroke-width="2"/>
+    <ellipse cx="80" cy="80" rx="80" ry="15" fill="#1a2332" stroke="#4FC3F7" stroke-width="2"/>
+    <text x="80" y="55" text-anchor="middle" fill="#4FC3F7" font-size="14">Cosmos DB</text>
+  </g>
+  
+  <g transform="translate(420, 420)">
+    <!-- Database 3 -->
+    <ellipse cx="80" cy="20" rx="80" ry="15" fill="#2a3342" stroke="#4FC3F7" stroke-width="2"/>
+    <rect x="0" y="20" width="160" height="60" fill="#2a3342"/>
+    <rect x="0" y="20" width="160" height="60" fill="none" stroke="#4FC3F7" stroke-width="2"/>
+    <ellipse cx="80" cy="80" rx="80" ry="15" fill="#1a2332" stroke="#4FC3F7" stroke-width="2"/>
+    <text x="80" y="55" text-anchor="middle" fill="#4FC3F7" font-size="14">Cache Redis</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="400" y="580" text-anchor="middle" fill="#4FC3F7" font-size="18">Azure Storage Infrastructure</text>
+</svg>
