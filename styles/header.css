@@ -178,7 +178,7 @@
 .upload-icon-container .tooltip,
 .youtube-apps-icon-container .tooltip,
 .notifications-icon-container .tooltip {
-  font-family: Roboto, Arial;
+  font-family: Helvetica, Arial, sans-serif;
   position: absolute;
   background-color: gray;
   color: white;
